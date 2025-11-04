@@ -1,7 +1,7 @@
 import express from 'express';
-import postRoutes from './routes/postRoutes';
+import postRoutes from './routes/postRoutes.js';
 import cors from 'cors';
-import dotenc from 'dotenv';
+import dotenv from 'dotenv';
 
 dotenv.config();
 
