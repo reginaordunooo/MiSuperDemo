@@ -31,7 +31,7 @@ export const getAllPosts = async (req, res) => {
 };
 
 export const deletePost = async (req, res) => {
-    const { id } = req.body;
+    const { id } = req.params;
 
     try{
         const deletePostQuery = `
