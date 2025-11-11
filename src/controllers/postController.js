@@ -53,9 +53,9 @@ export const updatePost = async (req, res) => {
     try{
         const updatePostQuery = `
         UPDATE posts
-        SET content = $1
+        SET content = $1, updated_at = CURRENT_TIMESTAMP
         WHERE id = $2
-        RETURNING id, content, created_at;
+        RETURNING id, content, updated_at;
         `;
         const result = await query(updatePostQuery, [content, id]);
         res.json(result.rows[0]);
