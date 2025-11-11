@@ -9,18 +9,18 @@ export const query = (text, params) => {
     return pool.query(text, params);
 };
 
-const initializeDatabase = async () => {
+const initializeDatabase = async() => {
     try{
         await query(`
-            CREATE TABLE IF NOT EXISTS posts (
-                id SERIAL PRIMARY KEY,
-                content TEXT NOT NULL,
-                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-            );`
+        CREATE TABLE IF NOT EXISTS posts (
+            id SERIAL PRIMARY KEY,
+            content TEXT NOT NULL,
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
         );
-        console.log('database tables created or already exist.');
-    } catch (error) {
+        `);
+        console.log('Database tables created or already exist.')
+    } catch(error) {
         console.error('Error initializing the database', error);
     }
 }
