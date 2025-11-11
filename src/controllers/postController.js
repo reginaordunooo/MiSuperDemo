@@ -53,8 +53,8 @@ export const updatePost = async (req, res) => {
     try{
         const deletePostQuery = `
         UPDATE posts
-        SET content = $1
-        WHERE id = $2
+        SET content = $2
+        WHERE id = $1
         RETURNING id, content, created_at;
         `;
         const result = await query(updatePostQuery, [content, id]);
