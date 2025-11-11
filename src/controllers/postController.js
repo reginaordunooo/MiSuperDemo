@@ -47,14 +47,14 @@ export const deletePost = async (req, res) => {
 };
 
 export const updatePost = async (req, res) => {
-    const { id } = req.params;
     const { content } = req.body;
+    const { id } = req.params;
 
     try{
-        const deletePostQuery = `
+        const updatePostQuery = `
         UPDATE posts
-        SET content = $2
-        WHERE id = $1
+        SET content = $1
+        WHERE id = $2
         RETURNING id, content, created_at;
         `;
         const result = await query(updatePostQuery, [content, id]);
